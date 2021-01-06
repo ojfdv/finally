@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>建党99周年</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+            width: 100%;
+        }
+		#bgc{
+			height: 100%;
+            width: 100%;
+            background-image: url(images/bg.jpg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 1000px;
+            z-index: -10;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 0;
+            opacity: 90%;
+		}
+		.navbar-inverse{
+			background-color: #f1f3de;
+		}
+		form.navbar-form.navbar-left {
+            position: relative;
+            left: 500px;
+            font-size: 25px;
+        }
+        a{
+        	font-size: 25px;
+        }
+        .item img{
+            position: relative;
+            left: 635px;
+            top: 15px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 320px;
+            top: 15px;
+        }
+        .fire {
+            background: url(images/fire.png) no-repeat;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            border-radius: 100%;
+            animation: firing 1.5s ease infinite;
+        }
+        .box_2 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 1440px;
+            top: 445px;
+        }
+        .fire2 {
+            background: url(images/fire.png) no-repeat;
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+            background-clip: content-box;
+            border-radius: 100%;
+            animation: firing 1.5s ease infinite;
+        }
+        @keyframes firing {
+            0%{ padding: 80px; transform: scale(0.5) translateY(0); opacity:1;}
+            75% { padding:0; transform: scale(1) translateY(0);}
+            100%{ opacity:0; transform:scale(1) translateY(100px);}
+        }
+        .icon{
+    	    text-align: center;
+        }
+        .icon1{
+    	    max-width: 100%;
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 0;
+            box-sizing: border-box;
+            width: 20%;
+        }
+        .heng{
+    	    background-image: linear-gradient(90deg, rgba(32, 114, 230, 0) 5%, rgb(244, 104, 63) 50%, rgba(32, 114, 230, 0) 95%);
+            height: 1px;
+            margin: -20px 0px 0px;
+        }
+        .move{
+    	    width: 20%;
+    	    animation:move 0.8s linear infinite;
+    	    margin: 0 auto;
+        }
+        @keyframes move{
+    	    from{
+       		    transform: rotate(0deg);
+       	    }
+         	to{
+       		    transform: rotate(360deg);
+         	}
+        }
+        .heng{
+    	    background-image: linear-gradient(90deg, rgba(32, 114, 230, 0) 5%, rgb(244, 104, 63) 50%, rgba(32, 114, 230, 0) 95%);
+            height: 1px;
+            margin: -27px 0px 0px;
+        }
+        .title{
+    	    font-size: 40px;
+        	position: relative;
+        	left: 0;
+        	top: 15px;
+        	color: #FFD700;
+        }
+        .text_box1{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 50px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        .text p{
+        	font-size: 20px;
+        	text-align: center;
+        	text-indent: 2em;
+        	color: #60281e;
+        }
+        .tran:hover{
+        	box-shadow: 0px 0px 20px #ca6924;
+            transform: scale(1.02);
+        }
+        .text_box2{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 100px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        h3{
+            color: #9d2933;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .text_box3{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 150px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        .text_box4{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 200px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        .text_box5{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 250px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        .text_box6{
+        	width: 1000px;
+        	position: relative;
+        	left: 435px;
+        	top: 300px;
+            border: 1px solid red;
+            padding: 10px 15px;
+            transition: all 0.6s;
+            background-color: rgba(221,214,214,0.4);
+            border-radius: 25px;
+        }
+        footer{
+            width: 100%;
+            height: 49px;   
+            background-color: transparent;
+            border-top: 1px solid #789262;
+            position: relative;
+            top: 350px;
+            left: 0;
+        }
+        .foot{
+            margin: 0 auto;
+            width: 45%;
+            font-size: 15px;
+            line-height: 47px;
+        }
+        .infomation{
+           font-size: 25px;
+           color: #4c4c4c;
+        }
+        .foot a{
+            text-decoration:none;
+        }
+        .foot a:link,a:visited{
+            color: #4c4c4c;
+        }
+        .foot a:hover{
+            color:#be002f;    
+        }
+	</style>
+
+</head>
+<body>
+	<span id="bgc"></span>
+	<nav class="navbar-inverse" role="navigation" id="顶部">
+	    <div class="container-fluid">
+            <div class="navbar-header"></div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li class="dropdown"><a href="message.html" >留言</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li> 
+                </ul> 
+            </div>
+	    </div>
+    </nav>
+
+    <div id="myCarousel" class="carousel slide">
+	<!-- 轮播（Carousel）指标 -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>   
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<img src="images/img1.jpeg" alt="First slide">
+		</div>
+		<div class="item">
+			<img src="images/img2.jpeg" alt="Second slide">
+		</div>
+		<div class="item">
+			<img src="images/img3.jpeg" alt="Third slide">
+		</div>
+	</div>
+	<!-- 轮播（Carousel）导航 -->
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+    </div> 
+    <div class="box">
+	    <div class="fire"></div>
+    </div>
+    <div class="box_2">
+	    <div class="fire2"></div>
+    </div>
+    <section class="icon">
+       <section class="icon1">
+            <img class="move" src="https://mmbiz.qpic.cn/mmbiz_png/JoT4PvwuaSONSic2dZKBXOmKAjZCZ0BwAgliaBrIgciaubCE3zumInE4W4x1qjicw8l6dgaQwXZ5ZjmT3bMHe0Njzw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" data-type="png" data-w="348" >
+       </section>
+       <section class="heng"></section>
+       <div class="title">
+       	    <p>建党99周年——峥嵘岁月，不忘初心</p>
+       </div>
+    </section>
+    <div class="box1">
+    	<div class="text_box1 tran">
+    		<div class="text"><p>1921年，在嘉兴南湖的红船上，中国共产党诞生，中国革命的面貌焕然一新。99年来，中国共产党初心不改，以人民至上的价值理念为中国人民谋幸福，也展现出计利天下的国际胸怀。</p>
+            <p>2020年是中国共产党99周年华诞，是全面建成小康社会和“十三五”规划收官之年。中国共产党团结带领中国人民，众志成城，克服挑战，坚定向宏伟目标奋进，并在世界舞台上贡献中国智慧、中国方案和中国力量，推动构建人类命运共同体，体现中国负责任大国的担当。</p></div>
+    	</div>
+    	<div class="text_box2 tran">
+    		<h3>1921——红船初心</h3>
+    		<div class="text"><p>中国共产党为中国人民谋幸福，为中华民族谋复兴。是中国共产党人的初心和使命，是激励一代代中国共产党人前赴后继、英勇奋斗的根本动力。</p>
+    		<p>从1921年中国共产党成立时的50多名党员，到1949年新中国成立时的448.8万名党员，再到2019年底的9191.4万名党员，近百年历程中，一代又一代中国共产党人薪火相传、接续奋斗，跨过一道又一道沟坎，取得一个又一个胜利。</p></div>
+    	</div>
+    	<div class="text_box3 tran">
+    		<h3>2020——建党99周年</h3>
+    		<div class="text"><p>中国共产党即将迎来百岁生日。立志于千秋伟业，百年恰是风华正茂。奋进新时代、踏上新征程，永远保持建党时的奋斗精神，永远保持对人民的赤子之心，中国共产党将永远年轻！</p>
+    		<p>90后代表们表示：“我们一定发挥党员的先锋模范作用，贡献‘90后’的青春力量！”“‘90后’真的长大了，以前我们被别人保护，现在我们可以保护别人了。”“三十而立，我们立住了！”他们是20后、30后……90后、00后，他们来自各行各业，但他们都有一个共同的名字——中国共产党员！</p></div>
+    	</div>
+    	<div class="text_box4 tran">
+    		<h3>人民至上、克服挑战谋求幸福</h3>
+    		<div class="text"><p>中国共产党自诞生之日起，就坚守为人民谋幸福的初心和使命。中国共产党成立99年的历史，就是一部为人民谋幸福的历史——巴勒斯坦民族解放运动（法塔赫）中央委员、阿拉伯关系和中国事务部部长阿巴斯·扎基如是说。</p>
+            <p>中国共产党坚持以人民为中心的发展思想，坚持人民至上，不懈奋斗，让人民过上好日子。伊拉克共产党总书记、前科技部长拉伊德·法赫米这样评论：中国共产党坚持以人民为中心的发展思想，体现了中国共产党的理想信念、性质宗旨和初心使命。</p><p>时光进入2020年，突如其来的新冠疫情带来严峻挑战。世界看到，中国共产党带领中国人民筑起抗疫钢铁长城，谱写了人民至上、紧紧依靠人民的战“疫”篇章。</p></div>
+    	</div>
+    	<div class="text_box5 tran">
+    		<h3>只争朝夕、决战决胜脱贫攻坚</h3>
+    		<div class="text"><p>在中国共产党成立99周年之际，中国将打赢脱贫攻坚战，为全球减贫事业做出重大贡献……中国的成功经验告诉我们，依靠正确决策和坚决执行，非洲国家也可以摆脱贫困——肯尼亚执政党朱比利党总书记拉斐尔·图朱这样评论。</p>
+    		<p>中国共产党迎来99周年华诞，这也是中国全面建成小康社会和“十三五”规划收官之年。打赢脱贫攻坚战、全面建成小康社会，是中国共产党对人民的庄严承诺。</p></div>
+    	</div>
+    	<div class="text_box6 tran">
+    		<h3>和合共生、共建人类命运共同体</h3>
+    		<div class="text"><p>中国共产党不仅是为中国人民谋幸福的政党，也是为人类进步事业而奋斗的政党……中国始终把自身发展寓于世界发展潮流之中，秉持人类命运共同体理念，肩负大国担当——这是古巴国际政治研究中心高级研究员何塞·罗瓦伊纳对中国共产党的深刻印象。</p>
+    		<p>山川异域，风月同天。在全球公共卫生危机、经济严重衰退等挑战面前，中国秉持人类命运共同体理念，推动国际社会携手抗疫、共克时艰，促进世界经济稳定，推进全球治理，维护以联合国为核心的国际体系和以国际法为基础的国际秩序，展现负责任大国的担当，为世界带来信心和力量。</p></div>
+    	</div>
+    </div>
+    <footer>
+        <div class="foot">
+            <span class="infomation"> Copyright © 2021 YJ All rights reserved.</span> ┊
+            <a href="#" target="_self">By 201905730231</a> ┊
+            <a href="#顶部">返回顶部</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于我</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+            width: 100%;
+        }
+		#bgc{
+			height: 100%;
+            width: 100%;
+            background-image: url(images/bg.jpg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 1000px;
+            z-index: -10;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 0;
+            opacity: 90%;
+		}
+		.navbar-inverse{
+			background-color: #f1f3de;
+		}
+		form.navbar-form.navbar-left {
+            position: relative;
+            left: 500px;
+            font-size: 25px;
+        }
+        a{
+        	font-size: 25px;
+        }
+        .title{
+            position:relative;
+            text-align:center;
+        }
+        .title:before, .title:after {
+            content: "";
+            width: 40%;
+            height: 1px;
+            position: absolute;
+            top: 50%; 
+        }
+        .title:before {
+            background: -webkit-linear-gradient(right, #f1cc23, #d22a2a); 
+            background: -o-linear-gradient(left, #f1cc23, #d22a2a); 
+            background: -moz-linear-gradient(left,#f1cc23, #d22a2a);
+            background: linear-gradient(to left, #f1cc23, #d22a2a); 
+            left: 2px;
+        }
+        .title:after {
+            background: -webkit-linear-gradient(left, #f1cc23, #d22a2a); 
+            background: -o-linear-gradient(right, #f1cc23, #d22a2a); 
+            background: -moz-linear-gradient(right, #f1cc23, #d22a2a);
+            background: linear-gradient(to right, #f1cc23, #d22a2a); 
+            right: 2px;
+        }
+
+        
+        .card {
+            color: inherit;
+            cursor: pointer;
+            width: calc(33% - 2rem);
+            min-width: calc(33% - 2rem);
+            height: 400px;
+            /*min-height: 400px;*/
+            perspective: 1000px;
+            /*margin: 1rem;*/
+            position: relative;
+            margin-right: 20px;
+        }
+        @media screen and (max-width: 800px) {
+            .card {
+                width: calc(50% - 2rem);
+            }
+        }
+        @media screen and (max-width: 500px) {
+            .card {
+                width: 100%;
+            }
+        }
+        .front,.back {
+            display: flex;
+            border-radius: 6px;
+            background-position: center;
+            background-size: cover;
+            /*text-align: center;*/
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            transition: ease-in-out 600ms;
+        }
+        .front {
+	        height: 420px;
+            width: 300px;
+            background-size: cover;
+            padding: 2rem;
+            font-size: 1.618rem;
+            font-weight: 600;
+            color: #fff;
+            overflow: hidden;
+            font-family: Poppins, sans-serif;
+            line-height: 28px;
+            box-shadow: 0px 0 20px #F7F1C9;
+        }
+        .front:before {
+            position: absolute;
+            display: block;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid #bd5353;
+            background: linear-gradient(135deg, #c54c44b8, #e7ac29ab);
+            opacity: 0.75;
+            z-index: -1;
+        }
+        .card:hover .front {
+            transform: rotateY(180deg);
+        }
+        .card:nth-child(even):hover .front {
+            transform: rotateY(-180deg);
+        }
+        .back {
+           	height: 420px;
+            width: 300px;
+            background: #dcd27e61;;
+            transform: rotateY(-180deg);
+            padding: 0 2em;
+            line-height: 22px;  
+        }
+        .card:hover .back {
+            transform: rotateY(0deg);
+        }
+        .card:nth-child(even) .back {
+            transform: rotateY(180deg);
+        }
+        .card:nth-child(even):hover .back {
+            transform: rotateY(0deg);
+        }
+        .button {
+            transform: translateZ(40px);
+            cursor: pointer;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            font-weight: bold;
+            color: #fff;
+            padding: .5em 1em;
+            border-radius: 100px;
+            font: inherit;
+            background-color: #337ab7;
+            border: none;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: 300ms ease;
+            display: flex;
+            text-align: center;
+        }
+        .button:before {
+            transition: 300ms ease;
+            position: absolute;
+            display: block;
+            content: '';
+            transform: translateZ(-40px);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            height: calc(100% - 20px);
+            width: calc(100% - 20px);
+            border-radius: 100px;
+            left: 10px;
+            top: 16px;
+            box-shadow: 0 0px 10px 6px #434343;
+            background-color: rgba(26, 87, 230, 0.25);
+        }
+        .button:hover {
+            transform: translateZ(55px);
+        }
+        .button:hover:before {
+            transform: translateZ(-55px);
+        }
+        .button:active {
+            transform: translateZ(20px);
+        }
+        .button:active:before {
+            transform: translateZ(-20px);
+            top: 12px;
+        }
+        .box1{
+        	width: 300px;
+        	position: relative;
+        	left: 400px;
+        	top: 35px;
+        }
+        .box2{
+        	width: 300px;
+        	position: relative;
+        	left: 800px;
+        	top: 0;
+        }
+        .box3{
+        	width: 300px;
+        	position: relative;
+        	left: 1200px;
+        	top: -35px;
+        }
+        .title_1{
+            position: relative;
+            top: 400px;
+            text-align: center;
+        }
+        .title_1:before, .title_1:after {
+            content: "";
+            width: 40%;
+            height: 1px;
+            position: absolute;
+            top: 50%; 
+        }
+        .title_1:before {
+            background: -webkit-linear-gradient(right, #f1cc23, #d22a2a); 
+            background: -o-linear-gradient(left, #f1cc23, #d22a2a); 
+            background: -moz-linear-gradient(left,#f1cc23, #d22a2a);
+            background: linear-gradient(to left, #f1cc23, #d22a2a); 
+            left: 2px;
+        }
+        .title_1:after {
+            background: -webkit-linear-gradient(left, #f1cc23, #d22a2a); 
+            background: -o-linear-gradient(right, #f1cc23, #d22a2a); 
+            background: -moz-linear-gradient(right, #f1cc23, #d22a2a);
+            background: linear-gradient(to right, #f1cc23, #d22a2a); 
+            right: 2px;
+        }
+        .heart{
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.heart_box1, .heart_box2, .heart_box3{
+			position: absolute;
+			z-index: 11;
+			background:linear-gradient(-90deg,#f50a45 0%,#d5093c 40%);
+            animation: beat 0.7s ease infinite;
+		}
+		.heart_box1{
+			z-index: 33;
+		}
+		.heart_box2{
+            width: 95px;
+            height: 95px;
+            bottom: 0;
+            left: 0;
+			background: linear-gradient(-45deg,#b80734 0%,#d5093c 40%);
+		}
+		.side {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: -27px;
+        }
+        .left {
+            left: 24px;
+        }
+        .right {
+            right: 30px;
+        }
+        .left:after{
+            content: " ";
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            top: 95px;
+            left: 95px;
+            transform: rotate(135deg);
+        }
+        .right:after{
+            content: " ";
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            display: inline-block;
+            position: absolute;
+            top: 130px;
+            left: 60px;
+            transform: rotate(135deg);
+        }
+		@keyframes beat {
+            0% {
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 40px #d5093c;
+            }   
+ 
+            50% {
+                transform: scale(1.1) rotate(225deg);
+                box-shadow: 0 0 40px #d5093c;
+            }
+ 
+            100% {
+                transform: scale(1) rotate(225deg);
+                box-shadow: 0 0 40px #d5093c;
+            }
+        }
+        .text_box{
+        	height: 325px;
+            width: 945px;
+            background-size: cover;
+            padding: 2rem;
+            font-size: 1.618rem;
+            font-weight: 600;
+            color: #fff;
+            overflow: hidden;
+            font-family: Poppins, sans-serif;
+            line-height: 28px;
+            box-shadow: 0px 0 20px #F7F1C9;
+            position: relative;
+            left: 480px;
+            top: 445px;
+        }
+        .text_box p span{
+        	font-size: 30px;
+        	color: #fa1c1bc7;
+        }
+        footer{
+            width: 100%;
+            height: 49px;   
+            background-color: transparent;
+            border-top: 1px solid #789262;
+            position: relative;
+            top: 500px;
+            left: 0;
+        }
+        .foot{
+            margin: 0 auto;
+            width: 45%;
+            font-size: 15px;
+            line-height: 47px;
+        }
+        .infomation{
+           font-size: 25px;
+           color: #4c4c4c;
+        }
+        .foot a{
+            text-decoration:none;
+        }
+        .foot a:link,a:visited{
+            color: #4c4c4c;
+        }
+        .foot a:hover{
+            color:#be002f;    
+        }
+    </style>
+</head>
+<body>
+	<span id="bgc"></span>
+	<nav class="navbar-inverse" role="navigation" id="顶部">
+	    <div class="container-fluid">
+            <div class="navbar-header"></div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li class="dropdown"><a href="message.html" >留言</a></li>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
+                 
+            </div>
+	    </div>
+    </nav>
+    <div class="content">
+    	<h2 class="title">页面讲解：</h2>
+    	<a class="card" href="index.html">
+    		<div class="box1">
+                <div class="front">
+                    <p>index页面：<br>
+                    网站的首页，使用bootstrap的导航框架还有轮播图，轮播图下是两个使用了css3动画的烟花，分割线上有一个使用旋转动画的五角星，鼠标经过框框有css3的变换跟加了阴影，页面的尾部都有版权，201905730231是空链接，返回底部是锚链接。</p>
+                </div>
+                <div class="back">
+                    <div><button class="button">点击进入</button></div>
+                </div>
+            </div>
+        </a>
+        <a class="card" href="about.html">
+            <div class="box2">
+            	<div class="front">
+                    <p>login页面:<br>
+                    点击首页的登录可进入登录页面，使用了bootstrap的表单框架，点击返回可返回首页
+                    <br><br><br><br>
+                    （此卡片链接进入about页面）<br>
+                    about页面:<br>
+                    本页面的三个页面解说小卡片鼠标经过会有翻转的效果，点击进入可进入对应网页</p>
+                </div>
+                <div class="back">
+                    <div><button class="button">点击进入</button></div>
+                </div>
+            </div>
+        </a>
+        <a class="card" href="message.html">
+    		<div class="box3">
+                <div class="front">
+                    <p>message页面：<br>
+                    网站的首页，使用bootstrap的导航框架还有轮播图，轮播图下是两个使用了css3动画的烟花，分割线上有一个使用旋转动画的五角星，鼠标经过框框有css3的变换跟加了阴影，每个页面的尾部都有版权，201905730231是空链接，返回底部是锚链接。</p>
+                </div>
+                <div class="back">
+                    <div><button class="button">点击进入</button></div>
+                </div>
+            </div>
+        </a>
+        <h2 class="title_1"><div class="heart">
+		<div class="heart_box1 left side">
+		</div>
+		<div class="heart_box2"></div>
+		<div class="heart_box3 right side">
+		</div>
+	</div></h2>
+    	<div class="text_box">
+    		<p>
+    			<span>课程心得</span>
+    			<br>
+    			<br>
+    			<br>
+    			这学期主要学的css，像一些动画什么的很有趣，总的来说，大二比大一更精进了。不得不说，Bootstrap真的太好用了，刚开始看资源其实不能理解怎么使用，问了同学之后勉强可以上手了哈哈，慢慢的比较熟悉了一些bootstrap的css全局和组件，自己不足的地方还是有很多，会继续努力的！<br>
+    			最后最后，提前祝老师新年快乐啊~
+    		</p>
+    	</div>
+    </div>
+    <footer>
+        <div class="foot">
+            <span class="infomation"> Copyright © 2021 YJ All rights reserved.</span> ┊
+            <a href="#" target="_self">By 201905730231</a> ┊
+            <a href="#顶部">返回顶部</a>
+        </div>
+    </footer>
+</body>
+</html>
